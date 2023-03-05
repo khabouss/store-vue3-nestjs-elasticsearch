@@ -26,9 +26,9 @@ export class SearchService {
     
     const response = await this.esService.search({
       index: this.configService.get('ELASTICSEARCH_INDEX'),
-      size: 50,
+
       query: {
-        fuzzy: search
+        match: search
       },
     });
     
