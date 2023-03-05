@@ -8,7 +8,7 @@
       >
         <div class="content w-full h-full">
           <div class="img bg-[#8d8d8d] m-2 rounded-lg">
-            <img class="h-full w-full rounded-lg" :src="p.img" alt="" />
+            <img class="h-full w-full rounded-lg" :src="p.thumbnail" alt="" />
           </div>
           <div
             class="title-des mt-1 w-full px-4 flex justify-start flex-col items-start overflow-hidden"
@@ -30,24 +30,27 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
-      products: [
-        {
-          id: 1,
-          title: "title",
-          description: "description",
-          img: "https://thumbs.dreamstime.com/b/bath-beauty-products-24145725.jpg",
-        },
-        {
-          id: 1,
-          title: "title",
-          description: "description",
-          img: "https://thumbs.dreamstime.com/b/bath-beauty-products-24145725.jpg",
-        },
-      ],
+      products: [],
     };
+  },
+  mounted() {
+    let query = {
+      data: {
+        description: {
+          query: "",
+        },
+      },
+    };
+    axios
+      .post("http://localhost:3000/products/search", query)
+      .then((response) => {
+        this.products = response.data.results;
+      });
   },
 };
 </script>

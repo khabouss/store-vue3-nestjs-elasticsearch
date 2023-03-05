@@ -26,10 +26,7 @@ export class SearchService {
     
     const response = await this.esService.search({
       index: this.configService.get('ELASTICSEARCH_INDEX'),
-
-      query: {
-        match: search
-      },
+      size:100
     });
     
     const hits = response.hits.hits;
