@@ -14,4 +14,9 @@ export class ProductsController {
   async getall(@Body() body) {
     return await this.searchService.getall(body.data);
   }
+
+  @Post('addpro')
+  async addpro(@Body() body) {
+    return await this.searchService.addpro(body.data);
+  }
 }

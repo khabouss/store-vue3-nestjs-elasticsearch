@@ -26,6 +26,7 @@ export default {
       .post("http://localhost:3000/products/getall", {})
       .then((response) => {
         this.products = response.data.results;
+        console.log(JSON.stringify(this.products, null, 2));
       });
   },
   watch: {

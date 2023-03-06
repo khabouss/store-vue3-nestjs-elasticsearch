@@ -14,6 +14,16 @@ type dataResponse = {
   images: string[];
 };
 
+type mindataResponse = {
+  title: string;
+  description: string;
+  price: string;
+  rating: string;
+  brand: string;
+  category: string;
+  images: string;
+};
+
 @Injectable()
 export class SearchService {
   constructor(
@@ -54,5 +64,28 @@ export class SearchService {
     });
 
     return { results: Array.from(results), total: response.hits.total };
+  }
+
+  async addpro(details: {key: string}) {
+    
+    const {Client} = require('@elastic/elasticsearch');
+    const client = new Client({
+      node: 'https://localhost:9200',
+      auth: {
+        username: 'elastic',
+        password: '96smc+t7S7C2vY3Ogvrd'
+      },
+      tls: {
+        ca: './http_ca.crt',
+        rejectUnauthorized: false
+      }
+    });
+
+    await client.index({
+      index: 'products',
+      document: details
+    })
+    await client.indices.refresh({ index: 'products' });
+    return 'true';
   }
 }

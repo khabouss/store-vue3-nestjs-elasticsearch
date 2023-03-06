@@ -23,7 +23,10 @@ export default {
       .then((response) => {
         download(JSON.stringify(response.data.results, null, 2), "products.json", "text/plain");
       });
-    }
+    },
+    redirect() {
+      this.$router.push('/add-product');
+    },
   },
 };
 </script>
@@ -69,6 +72,7 @@ export default {
 
       <div class="btn flex">
         <button
+          @click="redirect"
           class="p-3 h-[45px] rounded-lg flex items-center text-white font-semibold mx-1"
         >
           Add Products
