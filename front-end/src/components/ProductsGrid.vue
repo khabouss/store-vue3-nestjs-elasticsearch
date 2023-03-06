@@ -1,29 +1,8 @@
 <template>
-  <div class="product bg-slate-500 w-full h-full">
+  <div class="product bg-white w-full h-full ">
     <div class="all w-full h-full flex justify-center px-20 mt-14 flex-wrap">
-      <div
-        v-for="p in products"
-        :key="p.id"
-        class="cart mx-2 my-2 w-[22%] cursor-pointer flex bg-[#363443] rounded-lg"
-      >
-        <div class="content w-full h-full">
-          <div class="img bg-[#8d8d8d] m-2 rounded-lg">
-            <img class="h-full w-full rounded-lg" :src="p.thumbnail" alt="" />
-          </div>
-          <div
-            class="title-des mt-1 w-full px-4 flex justify-start flex-col items-start overflow-hidden"
-          >
-            <h1 class="font-semibold text-[18px] px-4 text-[#fff]">
-              {{ p.title }}
-            </h1>
-
-            <p
-              class="desc line-clamp-3 mt-2 mb-5 text-[#b2b2b2] font-light text-center"
-            >
-              {{ p.description }}
-            </p>
-          </div>
-        </div>
+      <div v-for="p in products" :key="p.id" class="cart mx-2 my-2 w-[22%] cursor-pointer flex bg-[#DCDCDC] rounded-lg">
+        <ItemCard :product="p" />
       </div>
     </div>
   </div>
@@ -31,26 +10,50 @@
 
 <script>
 import axios from "axios";
+import ItemCard from "./ItemCard.vue";
 
 export default {
+  components: {
+    ItemCard,
+  },
   data() {
     return {
       products: [],
     };
   },
   mounted() {
-    let query = {
-      data: {
-        description: {
-          query: "",
-        },
-      },
-    };
     axios
-      .post("http://localhost:3000/products/search", query)
+      .post("http://localhost:3000/products/getall", {})
       .then((response) => {
         this.products = response.data.results;
       });
   },
+  watch: {
+    '$route': function () {
+      let urlQuery = this.$route.query.query;
+      if (urlQuery && urlQuery != '') {
+        let searchQuery = {
+          data: {
+            description: {
+              query: urlQuery,
+            },
+          },
+        };
+        axios
+          .post("http://localhost:3000/products/search", searchQuery)
+          .then((response) => {
+            this.products = response.data.results;
+            console.log('updated', this.products);
+          });
+      }
+      else {
+        axios
+          .post("http://localhost:3000/products/getall", {})
+          .then((response) => {
+            this.products = response.data.results;
+          });
+      }
+    }
+  }
 };
 </script>

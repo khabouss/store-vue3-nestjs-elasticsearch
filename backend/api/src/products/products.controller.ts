@@ -9,4 +9,9 @@ export class ProductsController {
   async search(@Body() body) {
     return await this.searchService.search(body.data);
   }
+
+  @Post('getall')
+  async getall(@Body() body) {
+    return await this.searchService.getall(body.data);
+  }
 }
