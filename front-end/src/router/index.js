@@ -26,4 +26,11 @@ const router = createRouter({
   routes,
 });
 
+router.beforeEach((to) => {
+  console.log(to.name);
+  if (to.name === 'add_product_view' && localStorage.isAdmin != 'true') {
+    return '/';
+  }
+});
+
 export default router;
