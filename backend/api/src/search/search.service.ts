@@ -70,7 +70,7 @@ export class SearchService {
     
     const {Client} = require('@elastic/elasticsearch');
     const client = new Client({
-      node: 'https://localhost:9200',
+      node: 'http://172.16.84.69:9200',
       auth: {
         username: 'elastic',
         password: 'RHLKbPpalvabwbKqnr6G'

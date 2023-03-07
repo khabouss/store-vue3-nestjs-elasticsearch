@@ -1,5 +1,5 @@
 <template>
-  <div @click="redirect" class="content w-full h-full">
+  <div @click="redirect" class="content w-full">
     <div class="img bg-[#fff] m-1">
       <img class="object-none h-48 w-96 rounded-lg" :src="p.thumbnail" />
     </div>

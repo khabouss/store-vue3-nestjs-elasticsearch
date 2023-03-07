@@ -77,21 +77,21 @@ export default {
 
       <div class="btn flex space-x-[-50px] w-[40%]">
         <button v-if="$store.state.isAdmin" @click="redirect"
-          class=" h-[45px] w-full text-sm rounded-lg text-white font-semibold">
+          class="hover:bg-sky-700 w-full h-[40px] text-sm rounded-lg text-white font-semibold">
           Add Products
         </button>
-        <button class=" h-[45px] w-full text-sm rounded-lg text-white font-semibold" @click="exportFile">
+        <button class="hover:bg-sky-700 h-[40px] w-full text-sm rounded-lg text-white font-semibold" @click="exportFile">
           Export All
         </button>
-        <button @click="$store.commit('wListVisibility', true)" class=" h-[45px] rounded-lg w-full text-sm text-white font-semibold">
+        <button @click="$store.commit('wListVisibility', true)" class="hover:bg-sky-700 h-[40px] rounded-lg w-full text-sm text-white font-semibold">
           Which List
         </button>
-        <button v-if="$store.state.isAdmin" class=" h-[45px] rounded-lg w-full text-sm text-white font-semibold"
+        <button v-if="$store.state.isAdmin" class="hover:bg-sky-700 h-[40px] rounded-lg w-full text-sm text-white font-semibold"
           @click="logout">
           Log out
         </button>
         <button v-if="!$store.state.isAdmin" @click="$store.commit('changeOpen', !$store.state.open)"
-          class="mt-2 p-3 bg-[#0e8bff] h-[20px] text-sm rounded-lg flex items-center text-white font-semibold">
+          class="hover:bg-sky-700 mt-2 p-3 bg-[#0e8bff] h-[20px] text-sm rounded-lg flex items-center text-white font-semibold">
           Login
         </button>
       </div>
