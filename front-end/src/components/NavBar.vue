@@ -25,7 +25,7 @@ export default {
     },
     exportFile() {
       axios
-        .post("http://localhost:3000/products/getall", {})
+        .post("http://172.16.84.69:3000/products/getall", {})
         .then((response) => {
           download(JSON.stringify(response.data.results, null, 2), "products.json", "text/plain");
         });

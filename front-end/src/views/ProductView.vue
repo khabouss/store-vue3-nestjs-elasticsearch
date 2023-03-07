@@ -44,7 +44,7 @@ export default {
 		console.log(this.open);
         },
     },
-    mounted() {
+    updated() {
         let route = useRoute();
         let query = route.query;
         if (query.id) {
@@ -57,7 +57,7 @@ export default {
                 },
             };
             axios
-                .post("http://localhost:3000/products/search", searchQuery)
+                .post("http://172.16.84.69:3000/products/search", searchQuery)
                 .then((response) => {
                     this.$store.commit('selectProduct', response.data.results[0]);
 		    this.product = response.data.results[0];

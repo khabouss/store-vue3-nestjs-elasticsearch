@@ -23,7 +23,7 @@ export default {
   },
   mounted() {
     axios
-      .post("http://localhost:3000/products/getall", {})
+      .post("http://172.16.84.69:3000/products/getall", {})
       .then((response) => {
         this.products = response.data.results;
       });
@@ -40,14 +40,14 @@ export default {
           },
         };
         axios
-          .post("http://localhost:3000/products/search", searchQuery)
+          .post("http://172.16.84.69:3000/products/search", searchQuery)
           .then((response) => {
             this.products = response.data.results;
           });
       }
       else {
         axios
-          .post("http://localhost:3000/products/getall", {})
+          .post("http://172.16.84.69:3000/products/getall", {})
           .then((response) => {
             this.products = response.data.results;
           });

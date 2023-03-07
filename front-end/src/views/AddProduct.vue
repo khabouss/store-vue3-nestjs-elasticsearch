@@ -103,7 +103,7 @@ export default {
             }
             console.log(doc);
             axios
-                .post("http://localhost:3000/products/addpro", doc)
+                .post("http://172.16.84.69:3000/products/addpro", doc)
                 .then((response) => {
                     console.log(response);
                     if (response === 'error') {
