@@ -5,6 +5,7 @@ export default createStore({
     productInfo: [],
     open: false,
     isAdmin: false,
+    wProducts: [],
   },
   getters: {},
   mutations: {
@@ -17,6 +18,9 @@ export default createStore({
     changeIsAdmin(state, val) {
       state.isAdmin = val;
     },
+    addToWProducts(state, val) {
+      state.wProducts.push(val);
+    }
   },
   actions: {},
   modules: {},

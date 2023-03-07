@@ -84,7 +84,7 @@ export default {
         <button class=" h-[45px] w-full text-sm rounded-lg text-white font-semibold" @click="exportFile">
           Export All
         </button>
-        <button v-if="$store.state.isAdmin" class=" h-[45px] rounded-lg w-full text-sm text-white font-semibold">
+        <button @click="wList = true" v-if="$store.state.isAdmin" class=" h-[45px] rounded-lg w-full text-sm text-white font-semibold">
           Which List
         </button>
         <button v-if="$store.state.isAdmin" class=" h-[45px] rounded-lg w-full text-sm text-white font-semibold"

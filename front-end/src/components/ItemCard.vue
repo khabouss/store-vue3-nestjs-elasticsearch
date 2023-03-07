@@ -30,7 +30,7 @@ export default {
   methods:{
     redirect() {
       this.$store.commit('selectProduct', this.p);
-      this.$router.push('/product');
+      this.$router.push({path: '/product', query: {query: this.p.id}});
     },
   }
 };
