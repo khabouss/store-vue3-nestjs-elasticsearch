@@ -6,6 +6,7 @@ export default createStore({
     open: false,
     isAdmin: false,
     wProducts: [],
+    wopen: false,
   },
   getters: {},
   mutations: {
@@ -20,6 +21,9 @@ export default createStore({
     },
     addToWProducts(state, val) {
       state.wProducts.push(val);
+    },
+    wListVisibility(state, val) {
+      state.wopen = val;
     }
   },
   actions: {},

@@ -26,7 +26,7 @@ export default {
     methods: {
 	itemClicked(p) {
 		this.$router.push({path: '/product', query: {id: p.id}});
-		
+		this.$store.commit('wListVisibility', false);	
 	}
     }
 }

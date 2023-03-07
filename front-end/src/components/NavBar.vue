@@ -8,7 +8,6 @@ export default {
   data() {
     return {
       query: '',
-      wList: false
     };
   },
   components: {
@@ -52,8 +51,8 @@ export default {
     </div>
     <LoginPopup />
   </div>
-  <div v-show="wList == true" class="pop flex justify-center items-center absolute w-full h-full">
-    <div @click="wList = false" class="overlay z-[99] w-full h-full bg-[#000000] bg-opacity-90">
+  <div v-show="$store.state.wopen == true" class="pop flex justify-center items-center absolute w-full h-full">
+    <div @click="$store.commit('wListVisibility', false)" class="overlay z-[99] w-full h-full bg-[#000000] bg-opacity-90">
     </div>
     <CardPopup />
   </div>
@@ -84,7 +83,7 @@ export default {
         <button class=" h-[45px] w-full text-sm rounded-lg text-white font-semibold" @click="exportFile">
           Export All
         </button>
-        <button @click="wList = true" v-if="$store.state.isAdmin" class=" h-[45px] rounded-lg w-full text-sm text-white font-semibold">
+        <button @click="$store.commit('wListVisibility', true)" class=" h-[45px] rounded-lg w-full text-sm text-white font-semibold">
           Which List
         </button>
         <button v-if="$store.state.isAdmin" class=" h-[45px] rounded-lg w-full text-sm text-white font-semibold"
