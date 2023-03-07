@@ -1,11 +1,9 @@
 <template>
-  <div @click="redirect" class="content w-full">
+  <div @click="redirect" class="content w-full h-full">
     <div class="img bg-[#fff] m-1">
       <img class="object-none h-48 w-96 rounded-lg" :src="p.thumbnail" />
     </div>
-    <div
-      class="title-des mt-1 w-full px-4 flex justify-start flex-col items-start overflow-hidden"
-    >
+    <div class="title-des mt-1 w-full px-4 flex justify-start flex-col items-start overflow-hidden">
       <h1 class="font-semibold text-[18px] text-[#000]">
         {{ p.title }}
       </h1>
