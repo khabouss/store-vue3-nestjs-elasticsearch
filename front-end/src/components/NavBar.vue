@@ -56,7 +56,7 @@ export default {
     </div>
     <CardPopup />
   </div>
-  <div class="nav w-full h-[40px] bg-[#1c2840] shadow-[#0000005d] shadow-lg ">
+  <div class="nav w-full h-[55px] bg-[#fff] border shadow-[#0000005d] shadow-lg ">
 
     <div class="logoinputs w-full px-4 flex items-center h-full">
 
@@ -66,9 +66,9 @@ export default {
         </div>
         <div class="searchbar px-60 rounded-lg items-center flex">
           <div class="s w-[350px] h-[30px] bg-white rounded-lg">
-            <input v-model="this.query" class="w-full h-full rounded-lg px-4 text-sm" placeholder=" Search" type="text" />
+            <input v-model="this.query" class="w-full h-full rounded-sm border px-4 text-sm" placeholder=" Search" type="text" />
           </div>
-          <button class="p-4 bg-[#0e8bff] h-[30px] rounded-lg flex items-center text-white font-semibold mx-1"
+          <button class="hover:bg-sky-500 p-3 bg-[#0e8bff] h-[28px] rounded-sm flex items-center text-white font-semibold mx-1"
             @click="search">
             <img class="icon w-[20px] h-[20px]" src="search.svg" alt="" />
           </button>
@@ -77,16 +77,16 @@ export default {
 
       <div class="btn flex space-x-[-50px] w-[40%]">
         <button v-if="$store.state.isAdmin" @click="redirect"
-          class="hover:bg-sky-700 w-full h-[40px] text-sm rounded-lg text-white font-semibold">
+          class="hover:bg-sky-700 w-full h-[40px] text-sm rounded-lg text-[#0e8bff] font-semibold">
           Add Products
         </button>
-        <button class="hover:bg-sky-700 h-[40px] w-full text-sm rounded-lg text-white font-semibold" @click="exportFile">
+        <button class="hover:bg-sky-700 h-[40px] w-full text-sm rounded-lg text-[#0e8bff] font-semibold" @click="exportFile">
           Export All
         </button>
-        <button @click="$store.commit('wListVisibility', true)" class="hover:bg-sky-700 h-[40px] rounded-lg w-full text-sm text-white font-semibold">
+        <button @click="$store.commit('wListVisibility', true)" class="hover:bg-sky-700 h-[40px] rounded-lg w-full text-sm text-[#0e8bff] font-semibold">
           Which List
         </button>
-        <button v-if="$store.state.isAdmin" class="hover:bg-sky-700 h-[40px] rounded-lg w-full text-sm text-white font-semibold"
+        <button v-if="$store.state.isAdmin" class="hover:bg-sky-700 h-[40px] rounded-lg w-full text-sm text-[#0e8bff] font-semibold"
           @click="logout">
           Log out
         </button>

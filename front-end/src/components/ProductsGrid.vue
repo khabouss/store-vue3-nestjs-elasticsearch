@@ -1,7 +1,7 @@
 <template>
   <div class="product bg-white w-full h-full ">
     <div class="all w-full h-full flex justify-center px-20 mt-14 flex-wrap">
-      <div v-for="p in products" :key="p.id" class="cart mx-2 my-2 w-[22%] h-[35vh] cursor-pointer flex bg-[#DCDCDC] rounded-lg">
+      <div v-for="p in products" :key="p.id" class="cart mx-2 my-2 w-[22%] h-[35vh] cursor-pointer border flex bg-[#fff] rounded-lg">
         <ItemCard :product="p" />
       </div>
     </div>
