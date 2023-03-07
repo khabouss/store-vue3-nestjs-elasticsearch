@@ -73,7 +73,7 @@ export class SearchService {
       node: 'https://localhost:9200',
       auth: {
         username: 'elastic',
-        password: '96smc+t7S7C2vY3Ogvrd'
+        password: 'a9wzIyf7Bc21h4foQvmV'
       },
       tls: {
         ca: './http_ca.crt',

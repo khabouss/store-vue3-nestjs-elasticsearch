@@ -1,8 +1,5 @@
 <template>
   <div class="w-[42%] bg-[#363443] h-[80%] absolute z-[100] rounded-xl">
-    <div class="close w-full absolute flex justify-end">
-      <p class="text-white text-[20px] cursor-pointer font-medium m-4">X</p>
-    </div>
     <div class="m h-full flex flex-col justify-center items-center">
       <div class="lona flex items-center my-4">
         <div class="logo w-[55px] h-[55px] bg-[#0e8bff] rounded-xl flex items-center justify-center">

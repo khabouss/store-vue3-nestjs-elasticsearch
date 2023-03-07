@@ -2,15 +2,18 @@
 import LoginPopup from "./LoginPopup.vue";
 import axios from 'axios'
 import download from 'downloadjs'
+import CardPopup from "./CardPopup.vue";
 
 export default {
   data() {
     return {
       query: '',
+      wList: false
     };
   },
   components: {
     LoginPopup,
+    CardPopup
   },
   mounted() {
     if (localStorage.isAdmin === 'true') {
@@ -49,10 +52,17 @@ export default {
     </div>
     <LoginPopup />
   </div>
-  <div class="nav w-full h-[7vh] bg-[#708090] shadow-[#0000005d] shadow-lg">
-    <div class="logoinputs container mx-auto px-4 flex items-center h-full justify-between">
-      <div class="loginn flex items-center">
-        <div class="logo w-[30px] h-[30px] bg-[#0e8bff] rounded-xl flex items-center justify-center">
+  <div v-show="wList == true" class="pop flex justify-center items-center absolute w-full h-full">
+    <div @click="wList = false" class="overlay z-[99] w-full h-full bg-[#000000] bg-opacity-90">
+    </div>
+    <CardPopup />
+  </div>
+  <div class="nav w-full h-[40px] bg-[#1c2840] shadow-[#0000005d] shadow-lg ">
+
+    <div class="logoinputs w-full px-4 flex items-center h-full">
+
+      <div class="loginn flex w-[70%]">
+        <div class="logo w-[40px] h-[30px] bg-[#0e8bff] rounded-xl flex items-center justify-center">
           <button @click="homeBtnClick" class="font-bold text-white text-[20px]">S</button>
         </div>
         <div class="searchbar px-60 rounded-lg items-center flex">
@@ -66,23 +76,28 @@ export default {
         </div>
       </div>
 
-      <div class="btn flex w-full">
+      <div class="btn flex space-x-[-50px] w-[40%]">
         <button v-if="$store.state.isAdmin" @click="redirect"
-          class=" h-[45px] w-full text-sm rounded-lg text-white font-semibold mx-1">
+          class=" h-[45px] w-full text-sm rounded-lg text-white font-semibold">
           Add Products
         </button>
-        <button class="p-3 h-[45px] w-full text-sm rounded-lg text-white font-semibold mx-1" @click="exportFile">
+        <button class=" h-[45px] w-full text-sm rounded-lg text-white font-semibold" @click="exportFile">
           Export All
         </button>
-        <button v-if="$store.state.isAdmin"
-          class="p-3 h-[45px] rounded-lg w-full text-sm text-white font-semibold mx-1" @click="logout">
+        <button v-if="$store.state.isAdmin" class=" h-[45px] rounded-lg w-full text-sm text-white font-semibold">
+          Which List
+        </button>
+        <button v-if="$store.state.isAdmin" class=" h-[45px] rounded-lg w-full text-sm text-white font-semibold"
+          @click="logout">
           Log out
         </button>
         <button v-if="!$store.state.isAdmin" @click="$store.commit('changeOpen', !$store.state.open)"
-          class="p-3 mt-2 bg-[#0e8bff] h-[20px] text-sm rounded-lg flex items-center text-white font-semibold mx-1">
+          class="mt-2 p-3 bg-[#0e8bff] h-[20px] text-sm rounded-lg flex items-center text-white font-semibold">
           Login
         </button>
       </div>
+
+  
     </div>
   </div>
 </template>
